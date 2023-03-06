@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends 'products/base.html' %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Register | {% endblock title %}</title>
+</head>
+<body>
+{% load bootstrap4 %}
+
+{% block header %}
+  <h6 class="text-center">Register an Account here:</h6>
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+      <div class="col-md-6 col-lg-5 mx-auto">
+        <form action="{% url 'users:register' %}" method="post" class="form">
+          {% csrf_token %}
+          {% bootstrap_form form%}
+          {% buttons %}
+            <button class="btn btn-primary" name="submit">Register</button>
+          {% endbuttons %}
+        </form>
+      </div>
+    </div>
+    </div>
+{% endblock content %}
+
+</body>
+</html>

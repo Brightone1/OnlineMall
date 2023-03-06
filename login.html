@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends 'products/base.html' %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Login | {% endblock title %}</title>
+</head>
+<body>
+{% load bootstrap4 %}
+
+
+{% block header %}
+    <h6 class="text-center">Login to your Account</h6>
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6 col-lg-5 mx-auto">
+            <form action="{% url 'users:login' %}" method="post" class="form">
+               {% csrf_token %}
+               {% bootstrap_form form%}
+               <p> Have no Account? <a href="{% url 'users:register' %}">Register</a></p>
+               {% buttons %}
+                 <button class="btn btn-primary" name="submit">Login</i></button>
+               {% endbuttons %}
+
+                <input type="hidden" name="next" value="{% url 'products:index' %}" />
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends "products/base.html" %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Logged out | {% endblock title %}</title>
+</head>
+<body>
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <p class="p-2">You have been logged out. Thank you for visiting!</p>
+{% endblock content %}
+
+</body>
+</html>
